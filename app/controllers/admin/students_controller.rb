@@ -11,8 +11,8 @@ class Admin::StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      semester_id=Semester.where(semester_type:params[:semester_type],semester_no:params[:semester_no]).ids[0]
-      @student.student_semesters.create(semester_id:semester_id,enroll_year:params[:enroll_year])
+      semester_id = Semester.where(semester_type:params[:semester_type],semester_no:params[:semester_no]).ids[0]
+      @student.student_semesters.create(semester_id:semester_id, enroll_year:params[:enroll_year])
       UserMailer.student_welcome_email(@student).deliver
       redirect_to admin_students_path
     else
@@ -32,9 +32,9 @@ class Admin::StudentsController < ApplicationController
     @student = Student.find(params[:id])
 
     if @student.update(student_params)
-      semester_id=Semester.where(semester_type:params[:semester_type],semester_no:params[:semester_no]).ids[0]
+      semester_id = Semester.where(semester_type:params[:semester_type],semester_no:params[:semester_no]).ids[0]
       @student.student_semesters.create(semester_id:semester_id,enroll_year:params[:enroll_year])
-      redirect_to @student
+      redirect_to admin_students_path
     else
       render :edit, status: :unprocessable_entity
     end

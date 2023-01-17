@@ -3,4 +3,10 @@ class Teacher::DashboardController < ApplicationController
 
     def index; end
     
+    def show_course
+        @courses = current_teacher.sections
+    end
+    def show_section
+        @sections = current_teacher.sections
+    end
 end

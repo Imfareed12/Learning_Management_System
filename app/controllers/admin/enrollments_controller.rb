@@ -6,9 +6,9 @@ class Admin::EnrollmentsController < ApplicationController
 		@enrollment = Enrollment.new
 	end
 	def create
-		semester_id = Student.find_by(id:params[:enrollment][:student_id].to_i).semesters[0].id
+		semester_id = Section.find(params[:enrollment][:section_id]).semester_id
 		@enrollment = Enrollment.new(enrollment_params)
-		@enrollment.semester_id=semester_id
+		@enrollment.semester_id = semester_id
 		if @enrollment.save
 			redirect_to admin_enrollments_path
 		else
@@ -21,7 +21,7 @@ class Admin::EnrollmentsController < ApplicationController
 
 	def update
 		@enrollment = Enrollment.find(params[:id])
-		semester_id = Student.find_by(id:params[:enrollment][:student_id].to_i).semesters[0].id
+		semester_id = Section.find(params[:enrollment][:section_id]).semester_id
 		@enrollment.semester_id = semester_id
 		if @enrollment.update(enrollment_params)
 			redirect_to admin_enrollments_path
