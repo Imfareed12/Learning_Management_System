@@ -13,6 +13,9 @@
           <%= link_to "Teaching", teacher_courses_path(current_teacher.id), class:"nav-link" %>
         </li>
         <li class="nav-item">
+          <%= link_to "Profile", teacher_dashboard_path(current_teacher.id), class:"nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "Log out", destroy_teacher_session_path, class:"nav-link" %>
         </li>
       </ul>

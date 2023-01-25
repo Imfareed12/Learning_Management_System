@@ -1,5 +1,6 @@
-<%= form_for [:admin, @course] do |f| %>
+<%= form_for [:admin, @course],data: { turbo: false } do |f| %>
   <div class="container-fluid w-25 border rounded shadow mt-5 p-4 text-center bg-light">
+    <%= render "admin/shared/error", model: @course%>
     <div class="field">
       <%= f.label :course_title %><br />
       <%= f.text_field :course_title, class:"form-control"  %>

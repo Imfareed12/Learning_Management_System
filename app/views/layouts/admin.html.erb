@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LearningManagementSystem</title>
+    <title>Admin</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -21,6 +21,7 @@
         <%= alert %>
       </div>
     <% end %>
+    <%= render 'admin/dashboard/navbar' %>
     <%= yield %>
   </body>
 </html>

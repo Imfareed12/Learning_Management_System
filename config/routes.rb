@@ -36,8 +36,8 @@ Rails.application.routes.draw do
   namespace :teacher do
     root 'dashboard#index'
     resources :dashboard
-    get 'dashboard/show_section/:id', to: 'dashboard#show_section', as: :sections
-    get 'dashboard/show_course/:id', to: 'dashboard#show_course', as: :courses
+    get 'dashboard/show_history/:id', to: 'dashboard#show_history', as: :sections
+    get 'dashboard/show_teaching_course/:id', to: 'dashboard#show_teaching_course', as: :courses
   end
 
   # Defines the root path route ("/")
