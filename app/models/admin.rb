@@ -14,5 +14,6 @@ class Admin < ApplicationRecord
             confirmation: true,
             format: { with: PASSWORD_FORMAT }
   validates :first_name, :last_name, :Date_of_Birth, :roll_no, presence: true
-  
+  debugger
+  puts "In the admin model"
 end

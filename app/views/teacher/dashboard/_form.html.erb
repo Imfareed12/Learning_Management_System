@@ -19,7 +19,7 @@
     <div class="field">
       <%= f.label :profile_image, class: "form-label" %>
       <% if current_teacher.image.attached? %>
-        <%= image_tag @teacher.image, class:"form-control" %>
+        <%= image_tag @teacher.image, class:"form-control rounded-circle" %>
         <%= f.file_field :image, class: "form-control" %>
       <% else %>
         <%= f.file_field :image, class: "form-control" %>
